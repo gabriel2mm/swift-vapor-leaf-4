@@ -1,11 +1,9 @@
 import Vapor
+import Leaf
+
 
 func routes(_ app: Application) throws {
-    app.get { req in
-        return "It works!"
-    }
 
-    app.get("hello") { req -> String in
-        return "Hello, world!"
-    }
+    let indexController = IndexHandlerController()
+    try app.register(collection: indexController)
 }
